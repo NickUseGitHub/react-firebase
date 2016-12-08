@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
-import firebase from 'firebase/app'
 import logo from './logo.svg'
+import firebase from './lib/firebase'
 import './App.css'
-
-//middlewares
-import * as firebaseConf from './config/firebase'
-require('firebase/database')
-
-firebase.initializeApp(firebaseConf.config)
 
 //Components
 import Todo from './components/Todo'
