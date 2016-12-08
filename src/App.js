@@ -43,17 +43,7 @@ class App extends Component {
     var newTodoKey = firebase.database().ref().child('todos').push().key
     var updates = {};
     updates['/todos/' + newTodoKey] = todo
-    firebase.database().ref().update(updates).then(()=>{
-      this.getDataFromFirebase().once('value', (res) => {
-        let items = []
-        res.forEach(todo=>{
-          let todoObj = todo.val()
-          todoObj.key = todo.key
-          items.push(todoObj)
-        })
-        this.setState({items})
-      })
-    })
+    firebase.database().ref().update(updates)
   }
 
   removeList(item) {
