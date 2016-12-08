@@ -50,12 +50,10 @@ class App extends Component {
     let  items = this.state.items
         ,indexForRemove = items.findIndex(tItem => tItem.name === item.name)
     items.splice(indexForRemove, 1)
-    // this.setState({items})
     let itemsForUpdate = {}
     items.forEach(item => {
       itemsForUpdate[item.key] = { name: item.name }
     })
-    console.log(itemsForUpdate)
     firebase.database().ref().update({"/todos/" : itemsForUpdate})
   }
 
